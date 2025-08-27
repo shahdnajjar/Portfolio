@@ -1,3 +1,5 @@
+
+// Updated Navbar with new color scheme
 import React, { useRef } from "react";
 import {
   Box,
@@ -29,12 +31,12 @@ const NavLink = ({ children, onClick }: NavLinkProps) => {
       onClick={onClick}
       fontWeight="medium"
       fontSize="lg"
-      color="#4A5568"
+      color="#3D0301"
       position="relative"
       transition="all 0.18s ease"
       _hover={{
         textDecoration: "none",
-        color: "#A2AF9B",
+        color: "#D76C82",
         transform: "scale(1.03)",
       }}
       _after={{
@@ -44,7 +46,7 @@ const NavLink = ({ children, onClick }: NavLinkProps) => {
         height: "2px",
         bottom: 0,
         left: 0,
-        background: "#A2AF9B",
+        background: "#D76C82",
         transition: "width 0.28s ease",
       }}
     >
@@ -81,20 +83,18 @@ export default function Navbar() {
     <Box position="absolute" top={0} left={0} right={0} zIndex={20} paddingX={8} paddingY={6}>
       <Box
         ref={navbarRef}
-        background="rgba(255, 255, 255, 0.7)"
-        backdropFilter="blur(20px)"
+        background="#EBE8DB"
         borderRadius="full"
         paddingX={8}
         paddingY={4}
-        border="1px solid rgba(162, 175, 155, 0.5)"
-        boxShadow="0 8px 32px rgba(0, 0, 0, 0.1)"
+        border="1px solid #bb9fa4ff"
+        boxShadow="0 8px 32px rgba(61, 3, 1, 0.1)"
         position="relative"
       >
         <Flex alignItems="center" justifyContent="space-between">
           <Flex alignItems="center" fontWeight="bold" fontSize="2xl">
             <Box
-              background="linear-gradient(to right, #A2AF9B, #DCCFC0)"
-              backgroundClip="text"
+              color="#B03052"
               fontSize="3xl"
               fontWeight="extrabold"
             >
@@ -114,8 +114,8 @@ export default function Navbar() {
           </HStack>
 
           <Button
-            background="linear-gradient(to right, #A2AF9B, #DCCFC0)"
-            color="#4A5568"
+            background="#D76C82"
+            color="#EBE8DB"
             paddingX={6}
             paddingY={2}
             borderRadius="full"
@@ -123,7 +123,8 @@ export default function Navbar() {
             fontSize="sm"
             _hover={{
               transform: "translateY(-2px)",
-              boxShadow: "0 12px 25px rgba(162, 175, 155, 0.4)",
+              boxShadow: "0 12px 25px rgba(215, 108, 130, 0.4)",
+              background: "#C95A78"
             }}
             transition="all 0.3s"
             display={{ base: "none", md: "inline-flex" }}
@@ -134,12 +135,11 @@ export default function Navbar() {
 
           <IconButton
             aria-label="Menu"
-            background="rgba(255, 255, 255, 0.7)"
-            backdropFilter="blur(20px)"
-            color="#4A5568"
+            background="#EBE8DB"
+            color="#3D0301"
             borderRadius="xl"
-            border="1px solid rgba(162, 175, 155, 0.5)"
-            _hover={{ background: "rgba(255, 255, 255, 0.8)" }}
+            border="1px solid #89676eff"
+            _hover={{ background: "#E5E2D5" }}
             display={{ base: "flex", md: "none" }}
             onClick={onToggle}
           >
@@ -165,8 +165,8 @@ export default function Navbar() {
             })}
             <Button
               width="200px"
-              background="linear-gradient(to right, #A2AF9B, #DCCFC0)"
-              color="#4A5568"
+              background="#D76C82"
+              color="#EBE8DB"
               borderRadius="full"
               fontWeight="semibold"
               fontSize="sm"

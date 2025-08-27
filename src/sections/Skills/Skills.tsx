@@ -1,3 +1,4 @@
+// Skills.tsx
 import { useState, useEffect } from 'react';
 import {
   Box,
@@ -11,14 +12,22 @@ import {
   Button,
   Image,
 } from '@chakra-ui/react';
-
-type ColorType = 'cyan' | 'yellow' | 'blue' | 'red' | 'purple' | 'green' | 'orange' | 'gray';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { 
+  faReact, faJs, faHtml5, faCss3Alt, faPhp, faJava, faNodeJs, 
+  faPython, faGit, faWordpress 
+} from "@fortawesome/free-brands-svg-icons";
+import { faDatabase } from "@fortawesome/free-solid-svg-icons";
+import CIcon from '@coreui/icons-react';
+import { cibSwagger, cibPostman,cibTypescript } from '@coreui/icons';
 
 interface Skill {
   name: string;
   category: string;
-  logo: string;
-  color: ColorType;
+  icon?: any;       // FontAwesome icon
+  coreIcon?: any;   // CoreUI icon
+  logo?: string;    // Image path
+  color: string;
 }
 
 const Skills = () => {
@@ -26,22 +35,20 @@ const Skills = () => {
   const [glowIndex, setGlowIndex] = useState(0);
 
   const allSkills: Skill[] = [
-    { name: 'React.js', category: 'Frontend', logo: '/src/assets/images/react.png', color: 'cyan' },
-    { name: 'JavaScript', category: 'Frontend', logo: '/src/assets/images/javascript.png', color: 'yellow' },
-    { name: 'HTML5', category: 'Frontend', logo: '/src/assets/images/html5.png', color: 'red' },
-    { name: 'CSS3', category: 'Frontend', logo: '/src/assets/images/css3.png', color: 'blue' },
-    { name: 'TypeScript', category: 'Frontend', logo: '/src/assets/images/typescript.png', color: 'blue' },
-    { name: 'PHP', category: 'Backend', logo: '/src/assets/images/php.png', color: 'purple' },
-    { name: 'Java', category: 'Backend', logo: '/src/assets/images/java.png', color: 'red' },
-    { name: 'Node.js', category: 'Backend', logo: '/src/assets/images/nodejs.png', color: 'green' },
-    { name: 'Express.js', category: 'Backend', logo: '/src/assets/images/express-js.png', color: 'gray' },
-    { name: 'Python', category: 'Backend', logo: '/src/assets/images/python.png', color: 'yellow' },
-    { name: 'MySQL', category: 'Database', logo: '/src/assets/images/mysql.png', color: 'blue' },
-    { name: 'PostgreSQL', category: 'Database', logo: '/src/assets/images/postgresql.png', color: 'blue' },
-    { name: 'WordPress', category: 'Tools', logo: '/src/assets/images/wordpress.png', color: 'blue' },
-    { name: 'Git', category: 'Tools', logo: '/src/assets/images/git.png', color: 'red' },
-    { name: 'Postman', category: 'Tools', logo: '/src/assets/images/postman.png', color: 'orange' },
-    { name: 'Swagger', category: 'Tools', logo: '/src/assets/images/swagger.png', color: 'green' },
+    { name: 'React.js', category: 'Frontend', icon: faReact, color: '#D76C82' },
+    { name: 'JavaScript', category: 'Frontend', icon: faJs, color: '#D76C82' },
+    { name: 'HTML5', category: 'Frontend', icon: faHtml5, color: '#D76C82' },
+    { name: 'CSS3', category: 'Frontend', icon: faCss3Alt, color: '#D76C82' },
+    { name: 'TypeScript', category: 'Frontend', coreIcon: cibTypescript, color: '#D76C82' },
+    { name: 'PHP', category: 'Backend', icon: faPhp, color: '#D76C82' },
+    { name: 'Java', category: 'Backend', icon: faJava, color: '#D76C82' },
+    { name: 'Node.js', category: 'Backend', icon: faNodeJs, color: '#D76C82' },
+    { name: 'Python', category: 'Backend', icon: faPython, color: '#D76C82' },
+    { name: 'MySQL', category: 'Database', icon: faDatabase, color: '#D76C82' },
+    { name: 'WordPress', category: 'Tools', icon: faWordpress, color: '#D76C82' },
+    { name: 'Git', category: 'Tools', icon: faGit, color: '#D76C82' },
+    { name: 'Postman', category: 'Tools', coreIcon: cibPostman, color: '#D76C82' },
+    { name: 'Swagger', category: 'Tools', coreIcon: cibSwagger, color: '#D76C82' },
   ];
 
   const categories = ['All', 'Frontend', 'Backend', 'Database', 'Tools'];
@@ -58,106 +65,68 @@ const Skills = () => {
     return () => clearInterval(interval);
   }, [filteredSkills.length]);
 
-  const getColorStyles = (color: ColorType) => {
-    const colors = {
-      cyan: { primary: '#A2AF9B', secondary: '#96A38F', light: '#B5C1A8', glow: 'rgba(162, 175, 155, 0.3)' },
-      yellow: { primary: '#DCCFC0', secondary: '#D0C3B4', light: '#E5D8CC', glow: 'rgba(220, 207, 192, 0.3)' },
-      blue: { primary: '#EEEEEE', secondary: '#E2E2E2', light: '#F5F5F5', glow: 'rgba(238, 238, 238, 0.3)' },
-      red: { primary: '#A2AF9B', secondary: '#96A38F', light: '#B5C1A8', glow: 'rgba(162, 175, 155, 0.3)' },
-      purple: { primary: '#DCCFC0', secondary: '#D0C3B4', light: '#E5D8CC', glow: 'rgba(220, 207, 192, 0.3)' },
-      green: { primary: '#A2AF9B', secondary: '#96A38F', light: '#B5C1A8', glow: 'rgba(162, 175, 155, 0.3)' },
-      orange: { primary: '#DCCFC0', secondary: '#D0C3B4', light: '#E5D8CC', glow: 'rgba(220, 207, 192, 0.3)' },
-      gray: { primary: '#EEEEEE', secondary: '#E2E2E2', light: '#F5F5F5', glow: 'rgba(238, 238, 238, 0.3)' },
-    };
-    return colors[color] || colors.gray;
-  };
-
   return (
     <Box
       minH="100vh"
-      background="linear-gradient(135deg, #FAF9EE 0%, #EEEEEE 50%, #DCCFC0 100%)"
+      background="#EBE8DB"
       position="relative"
       py={20}
       overflow="hidden"
     >
+      {/* Background glow effects */}
       <Box position="absolute" inset={0}>
         <Box
           position="absolute"
           top="80px"
           left="40px"
-          width="128px"
-          height="128px"
-          background="#A2AF9B"
-          opacity={0.3}
-          borderRadius="full"
-          filter="blur(48px)"
-        />
-        <Box
-          position="absolute"
-          top="160px"
-          right="80px"
-          width="192px"
-          height="192px"
-          background="#DCCFC0"
-          opacity={0.3}
+          w="128px"
+          h="128px"
+          bg="#B03052"
+          opacity={0.1}
           borderRadius="full"
           filter="blur(48px)"
         />
         <Box
           position="absolute"
           bottom="80px"
-          left="80px"
-          width="160px"
-          height="160px"
-          background="#A2AF9B"
-          opacity={0.3}
+          right="80px"
+          w="160px"
+          h="160px"
+          bg="#D76C82"
+          opacity={0.1}
           borderRadius="full"
           filter="blur(48px)"
         />
-        <Box
-          position="absolute"
-          bottom="128px"
-          right="128px"
-          width="96px"
-          height="96px"
-          background="#EEEEEE"
-          opacity={0.3}
-          borderRadius="full"
-          filter="blur(32px)"
-        />
       </Box>
 
-      <Container maxWidth="7xl" position="relative" zIndex={10}>
-        <VStack gap={6} marginBottom={16} textAlign="center">
+      <Container maxW="7xl" position="relative" zIndex={10}>
+        {/* Title */}
+        <VStack gap={6} mb={16} textAlign="center">
           <Heading
-            color="#4A5568"
+            color="#3D0301"
             fontSize={{ base: '4xl', md: '5xl', lg: '6xl' }}
             fontWeight="bold"
           >
-            Technical <Text as="span" background="linear-gradient(90deg, #A2AF9B 0%, #DCCFC0 100%)" backgroundClip="text">Skills</Text>
+            Technical <Text as="span" color="#B03052">Skills</Text>
           </Heading>
-          <Box
-            width="80px"
-            height="4px"
-            background="linear-gradient(90deg, #A2AF9B 0%, #DCCFC0 100%)"
-            borderRadius="full"
-          />
+          <Box w="80px" h="4px" bg="#D76C82" borderRadius="full" />
         </VStack>
 
-        <HStack gap={4} justifyContent="center" marginBottom={12}>
+        {/* Category Filters */}
+        <HStack gap={4} justify="center" mb={12}>
           {categories.map((category) => (
             <Button
               key={category}
-              background={selectedCategory === category ? 'rgba(255, 255, 255, 0.7)' : 'rgba(255, 255, 255, 0.5)'}
-              backdropFilter="blur(20px)"
+              bg={selectedCategory === category ? '#D76C82' : '#EBE8DB'}
               borderRadius="full"
-              border="1px solid"
-              borderColor="rgba(162, 175, 155, 0.5)"
-              color="#4A5568"
+              border="1px solid #D76C82"
+              color={selectedCategory === category ? '#EBE8DB' : '#3D0301'}
               fontWeight="semibold"
-              paddingX={6}
-              paddingY={2}
-              _hover={{ background: 'rgba(255, 255, 255, 0.8)' }}
+              px={6}
+              py={2}
+              _hover={{ 
+                bg: selectedCategory === category ? '#C95A78' : '#E5E2D5'
+              }}
               transition="all 0.3s"
               onClick={() => setSelectedCategory(category)}
             >
@@ -166,6 +135,7 @@ const Skills = () => {
           ))}
         </HStack>
 
+        {/* Skills Grid */}
         <Grid
           templateColumns={{ base: 'repeat(auto-fit, minmax(140px, 1fr))', md: 'repeat(auto-fit, minmax(180px, 1fr))' }}
           gap={6}
@@ -173,21 +143,18 @@ const Skills = () => {
           {filteredSkills.map((skill, index) => {
             const isActive = glowIndex === index;
             const isHovered = activeSkill === skill.name;
-            const colors = getColorStyles(skill.color);
 
             return (
               <GridItem
                 key={skill.name}
-                background="rgba(255, 255, 255, 0.7)"
-                backdropFilter="blur(20px)"
+                bg="#EBE8DB"
                 borderRadius="2xl"
-                border="1px solid"
-                borderColor={isActive || isHovered ? colors.primary : 'rgba(162, 175, 155, 0.5)'}
-                padding={6}
+                border={isActive || isHovered ? `2px solid ${skill.color}` : '1px solid rgba(61, 3, 1, 0.3)'}
+                p={6}
                 transition="all 0.3s"
                 _hover={{
                   transform: 'translateY(-8px)',
-                  boxShadow: `0 12px 40px ${colors.glow}`,
+                  boxShadow: `0 12px 40px ${skill.color}40`,
                 }}
                 cursor="pointer"
                 onMouseEnter={() => setActiveSkill(skill.name)}
@@ -199,39 +166,72 @@ const Skills = () => {
                     position="absolute"
                     top="12px"
                     right="12px"
-                    width="8px"
-                    height="8px"
-                    background={colors.primary}
+                    w="8px"
+                    h="8px"
+                    bg={skill.color}
                     borderRadius="full"
                     animation="ping 1s infinite"
                   />
                 )}
-                <VStack alignItems="center" gap={3}>
-                  <Image
-                    src={skill.logo}
-                    alt={`${skill.name} logo`}
-                    boxSize="64px"
-                    objectFit="contain"
-                    filter={isActive || isHovered ? 'brightness(1.1) saturate(1.2)' : 'brightness(0.9)'}
-                    transition="all 0.3s"
-                  />
-                  <Text
-                    fontSize="md"
-                    fontWeight="semibold"
-                    color="#4A5568"
-                    textAlign="center"
-                  >
+                <VStack align="center" gap={3}>
+                  {/* Icon rendering logic - FIXED */}
+                  {skill.icon ? (
+                    <Box display="flex" alignItems="center" justifyContent="center" w="64px" h="64px">
+                      <FontAwesomeIcon
+                        icon={skill.icon}
+                        size="3x"
+                        color={skill.color}
+                        style={{
+                          filter: isActive || isHovered ? 'brightness(1.1) saturate(1.2)' : 'brightness(0.9)',
+                          transition: 'all 0.3s'
+                        }}
+                      />
+                    </Box>
+                  ) : skill.coreIcon ? (
+                    <Box
+                      display="flex"
+                      alignItems="center"
+                      justifyContent="center"
+                      w="64px"
+                      h="64px"
+                    >
+                      <CIcon
+                        icon={skill.coreIcon}
+                        width={48}
+                        height={48}
+                        color={skill.color}
+                        style={{
+                          filter: `brightness(${isActive || isHovered ? 1.1 : 0.9}) saturate(${isActive || isHovered ? 1.2 : 1})`,
+                          transition: 'all 0.3s',
+                          fill: skill.color // Fallback for SVG fill
+                        }}
+                      />
+                    </Box>
+                  ) : skill.logo ? (
+                    <Image
+                      src={skill.logo}
+                      alt={`${skill.name} logo`}
+                      boxSize="64px"
+                      objectFit="contain"
+                      filter={isActive || isHovered ? 'brightness(1.1) saturate(1.2)' : 'brightness(0.9)'}
+                      transition="all 0.3s"
+                    />
+                  ) : null}
+
+                  {/* Skill name */}
+                  <Text fontSize="md" fontWeight="semibold" color="#3D0301" textAlign="center">
                     {skill.name}
                   </Text>
+
+                  {/* Skill category */}
                   <Text
                     fontSize="xs"
-                    paddingX={3}
-                    paddingY={1}
+                    px={3}
+                    py={1}
                     borderRadius="full"
-                    border="1px solid"
-                    borderColor={isActive || isHovered ? colors.primary : 'rgba(162, 175, 155, 0.5)'}
-                    background={isActive || isHovered ? `${colors.primary}20` : 'rgba(255, 255, 255, 0.5)'}
-                    color={isActive || isHovered ? colors.light : '#4A5568'}
+                    border={`1px solid ${skill.color}`}
+                    bg={isActive || isHovered ? `${skill.color}20` : '#EBE8DB'}
+                    color={isActive || isHovered ? skill.color : '#3D0301'}
                   >
                     {skill.category}
                   </Text>
@@ -242,15 +242,7 @@ const Skills = () => {
         </Grid>
       </Container>
 
-      <Box
-        position="absolute"
-        bottom={0}
-        left={0}
-        width="full"
-        height="128px"
-        background="linear-gradient(to top, rgba(250, 249, 238, 0.4) 0%, transparent 100%)"
-      />
-      
+      {/* Ping animation */}
       <style>
         {`
           @keyframes ping {

@@ -32,7 +32,7 @@ const projects: Project[] = [
   {
     id: 1,
     title: 'Application desktop de Gestion de Restaurant',
-    description: 'Développement d’une application de bureau pour la gestion des commandes, des tables, du menu et de la facturation dans un restaurant. Interface utilisateur conçue avec JavaFX et base de données relationnelle MySQL pour stocker les informations clients, plats et commandes.',
+    description: 'Développement d\'une application de bureau pour la gestion des commandes, des tables, du menu et de la facturation dans un restaurant. Interface utilisateur conçue avec JavaFX et base de données relationnelle MySQL pour stocker les informations clients, plats et commandes.',
     category: 'Desktop Development',
     image: 'https://via.placeholder.com/400x300',
     link: '#',
@@ -40,7 +40,7 @@ const projects: Project[] = [
   {
     id: 2,
     title: 'Paradice – Application web de Gestion de Stock',
-    description: 'Développement d’une application web interne pour une entreprise de fabrication de glace. Elle permet la gestion des entrées/sorties de stock, le suivi des produits finis et matières premières. Back-end conçu avec Node.js, front-end développé en React.js avec une interface intuitive. Tests d’API et validation fonctionnelle réalisés avec Postman. Données stockées dans une base PostgreSQL.',
+    description: 'Développement d\'une application web interne pour une entreprise de fabrication de glace. Elle permet la gestion des entrées/sorties de stock, le suivi des produits finis et matières premières. Back-end conçu avec Node.js, front-end développé en React.js avec une interface intuitive. Tests d\'API et validation fonctionnelle réalisés avec Postman. Données stockées dans une base PostgreSQL.',
     category: 'Web Development',
     image: 'https://via.placeholder.com/400x300',
     link: '#',
@@ -48,7 +48,7 @@ const projects: Project[] = [
   {
     id: 3,
     title: 'Cosmos Delivery – Application Web de Livraison',
-    description: 'Développement d’une application web complète de gestion de livraisons. L’application gère plusieurs rôles : Client, Service Client, Livreur, Administrateur. Back-end construit avec Node.js et Express.js, base de données PostgreSQL. Documentation interactive générée avec Swagger. Tests d’API réalisés avec Postman. Interface utilisateur développée en React.js.',
+    description: 'Développement d\'une application web complète de gestion de livraisons. L\'application gère plusieurs rôles : Client, Service Client, Livreur, Administrateur. Back-end construit avec Node.js et Express.js, base de données PostgreSQL. Documentation interactive générée avec Swagger. Tests d\'API réalisés avec Postman. Interface utilisateur développée en React.js.',
     category: 'Web Development',
     image: 'https://via.placeholder.com/400x300',
     link: '#',
@@ -73,10 +73,7 @@ const Projects = () => {
   return (
     <Box
       minH="100vh"
-      bgGradient="to-br"
-      gradientFrom="#FAF9EE"
-      gradientVia="#EEEEEE"
-      gradientTo="#DCCFC0"
+      bg="#EBE8DB"
       position="relative"
       py={20}
       overflow="hidden"
@@ -89,50 +86,28 @@ const Projects = () => {
           left="40px"
           w="128px"
           h="128px"
-          bg="#A2AF9B"
-          opacity={0.3}
-          borderRadius="full"
-          filter="blur(48px)"
-        />
-        <Box
-          position="absolute"
-          top="160px"
-          right="80px"
-          w="192px"
-          h="192px"
-          bg="#DCCFC0"
-          opacity={0.3}
+          bg="#B03052"
+          opacity={0.1}
           borderRadius="full"
           filter="blur(48px)"
         />
         <Box
           position="absolute"
           bottom="80px"
-          left="80px"
+          right="80px"
           w="160px"
           h="160px"
-          bg="#A2AF9B"
-          opacity={0.3}
+          bg="#D76C82"
+          opacity={0.1}
           borderRadius="full"
           filter="blur(48px)"
-        />
-        <Box
-          position="absolute"
-          bottom="128px"
-          right="128px"
-          w="96px"
-          h="96px"
-          bg="#EEEEEE"
-          opacity={0.3}
-          borderRadius="full"
-          filter="blur(32px)"
         />
       </Box>
 
       <Container maxW="7xl" position="relative" zIndex={10}>
         <VStack gap={6} mb={16} textAlign="center">
           <Heading
-            color="#4A5568"
+            color="#3D0301"
             size={{ base: '3xl', md: '4xl', lg: '5xl' }}
             fontWeight="bold"
           >
@@ -141,9 +116,7 @@ const Projects = () => {
           <Box
             w="80px"
             h="4px"
-            bgGradient="to-r"
-            gradientFrom="#A2AF9B"
-            gradientTo="#DCCFC0"
+            bg="#D76C82"
             borderRadius="full"
           />
         </VStack>
@@ -152,16 +125,16 @@ const Projects = () => {
           {categories.map((category) => (
             <Button
               key={category}
-              bg={filter === category ? 'rgba(255, 255, 255, 0.7)' : 'rgba(255, 255, 255, 0.5)'}
-              backdropFilter="blur(20px)"
+              bg={filter === category ? '#D76C82' : '#EBE8DB'}
               borderRadius="full"
-              border="1px solid"
-              borderColor="rgba(162, 175, 155, 0.5)"
-              color="#4A5568"
+              border="1px solid #D76C82"
+              color={filter === category ? '#EBE8DB' : '#3D0301'}
               fontWeight="semibold"
               px={6}
               py={2}
-              _hover={{ bg: 'rgba(255, 255, 255, 0.8)' }}
+              _hover={{ 
+                bg: filter === category ? '#C95A78' : '#E5E2D5'
+              }}
               transition="all 0.3s"
               onClick={() => setFilter(category)}
             >
@@ -179,26 +152,22 @@ const Projects = () => {
               <DialogRoot>
                 <DialogTrigger asChild>
                   <Box
-                    bg="rgba(255, 255, 255, 0.7)"
-                    backdropFilter="blur(20px)"
+                    bg="#FFF2EF"
                     borderRadius="2xl"
-                    border="1px solid"
-                    borderColor="rgba(162, 175, 155, 0.5)"
+                    border="1px solid rgba(247, 165, 165, 0.5)"
                     boxShadow="0 8px 32px rgba(0, 0, 0, 0.1)"
                     p={6}
                     transition="all 0.3s"
                     _hover={{
                       transform: 'translateY(-8px)',
-                      boxShadow: '0 12px 40px rgba(0, 0, 0, 0.2)',
+                      boxShadow: '0 12px 40px rgba(247, 165, 165, 0.3)',
                     }}
                     cursor="pointer"
                   >
                     <Box
                       w="full"
                       h="200px"
-                      bgGradient="to-br"
-                      gradientFrom="#A2AF9B"
-                      gradientTo="#DCCFC0"
+                      bg="#FFF2EF"
                       borderRadius="xl"
                       mb={4}
                       display="flex"
@@ -213,17 +182,15 @@ const Projects = () => {
                           style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '8px' }} 
                         />
                       ) : (
-                        <Text color="#4A5568" opacity={0.6} fontSize="sm">
+                        <Text color="#FFF2EF" opacity={0.8} fontSize="sm">
                           Project Preview
                         </Text>
                       )}
                     </Box>
                     <VStack align="start" gap={3}>
                       <Badge
-                        bgGradient="to-r"
-                        gradientFrom="#A2AF9B"
-                        gradientTo="#DCCFC0"
-                        color="#4A5568"
+                        bg="#FFDBB6"
+                        color="#5D688A"
                         px={3}
                         py={1}
                         borderRadius="full"
@@ -231,10 +198,10 @@ const Projects = () => {
                       >
                         {project.category}
                       </Badge>
-                      <Heading color="#4A5568" size="xl" fontWeight="bold">
+                      <Heading color="#5D688A" size="xl" fontWeight="bold">
                         {project.title}
                       </Heading>
-                      <Text color="#4A5568" opacity={0.6} fontSize="sm" lineClamp={2}>
+                      <Text color="#5D688A" opacity={0.7} fontSize="sm" lineClamp={2}>
                         {project.description}
                       </Text>
                     </VStack>
@@ -242,19 +209,17 @@ const Projects = () => {
                 </DialogTrigger>
                 
                 <DialogContent
-                  bg="rgba(255, 255, 255, 0.7)"
-                  backdropFilter="blur(20px)"
+                  bg="#FFF2EF"
                   borderRadius="2xl"
-                  border="1px solid"
-                  borderColor="rgba(162, 175, 155, 0.5)"
-                  boxShadow="0 8px 32px rgba(0, 0, 0, 0.1)"
+                  border="1px solid #F7A5A5"
+                  boxShadow="0 8px 32px rgba(93, 104, 138, 0.1)"
                   maxW="xl"
                 >
                   <DialogHeader>
-                    <Heading color="#4A5568" size="2xl" fontWeight="bold">
+                    <Heading color="#5D688A" size="2xl" fontWeight="bold">
                       {project.title}
                     </Heading>
-                    <DialogCloseTrigger color="#4A5568" />
+                    <DialogCloseTrigger color="#5D688A" />
                   </DialogHeader>
                   <DialogBody pb={6}>
                     <VStack gap={4} align="start">
@@ -262,9 +227,7 @@ const Projects = () => {
                         <Box
                           w="full"
                           h="300px"
-                          bgGradient="to-br"
-                          gradientFrom="#A2AF9B"
-                          gradientTo="#DCCFC0"
+                          bg="#F7A5A5"
                           borderRadius="xl"
                           overflow="hidden"
                         >
@@ -276,10 +239,8 @@ const Projects = () => {
                         </Box>
                       )}
                       <Badge
-                        bgGradient="to-r"
-                        gradientFrom="#A2AF9B"
-                        gradientTo="#DCCFC0"
-                        color="#4A5568"
+                        bg="#FFDBB6"
+                        color="#5D688A"
                         px={3}
                         py={1}
                         borderRadius="full"
@@ -287,22 +248,18 @@ const Projects = () => {
                       >
                         {project.category}
                       </Badge>
-                      <Text color="#4A5568" opacity={0.6} fontSize="md">
+                      <Text color="#5D688A" opacity={0.7} fontSize="md">
                         {project.description}
                       </Text>
                       <Button
                         as="a"
-                        bgGradient="to-r"
-                        gradientFrom="#A2AF9B"
-                        gradientTo="#DCCFC0"
-                        color="#4A5568"
+                        bg="#F7A5A5"
+                        color="#FFF2EF"
                         borderRadius="full"
                         px={6}
                         py={2}
                         _hover={{ 
-                          bgGradient: "to-r",
-                          gradientFrom: "#96A38F",
-                          gradientTo: "#D0C3B4"
+                          bg: "#F59494"
                         }}
                       >
                         View Project
@@ -315,17 +272,6 @@ const Projects = () => {
           ))}
         </Grid>
       </Container>
-
-      <Box
-        position="absolute"
-        bottom={0}
-        left={0}
-        w="full"
-        h="128px"
-        bgGradient="to-t"
-        gradientFrom="#FAF9EE"
-        gradientTo="transparent"
-      />
     </Box>
   );
 };

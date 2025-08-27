@@ -1,69 +1,131 @@
-# React + TypeScript + Vite
+# Shahd Najjar - Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive portfolio website showcasing my projects and skills as a developer.
 
-Currently, two official plugins are available:
+## 🚀 Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+[Visit My Portfolio](https://your-portfolio-url.com) <!-- Replace with your actual deployed URL -->
 
-## Expanding the ESLint configuration
+## 📋 About
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+This portfolio website serves as a comprehensive showcase of my development journey, featuring my projects, skills, and professional experience. Built with modern web technologies to ensure optimal performance and user experience.
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🛠️ Technologies Used
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+- **Frontend Framework:** React 18
+- **Language:** TypeScript
+- **Build Tool:** Vite
+- **Styling:** [Add your CSS framework/library - e.g., Tailwind CSS, Styled Components, etc.]
+- **Code Quality:** ESLint
+- **Deployment:** [Add your deployment platform - e.g., Vercel, Netlify, GitHub Pages]
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## ✨ Features
+
+- 📱 Fully responsive design
+- ⚡ Fast loading with Vite optimization
+- 🎨 Modern and clean UI/UX
+- 📧 Contact form integration
+- 🌙 [Add if you have] Dark/Light theme toggle
+- 📱 Mobile-first approach
+- ♿ Accessible design
+
+## 📁 Project Structure
+
+```
+portfolio/
+├── public/
+│   ├── images/
+│   └── favicon.ico
+├── src/
+│   ├── components/
+│   │   ├── Header/
+│   │   ├── About/
+│   │   ├── Projects/
+│   │   ├── Skills/
+│   │   └── Contact/
+│   ├── pages/
+│   ├── assets/
+│   ├── styles/
+│   └── utils/
+├── package.json
+└── README.md
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🚀 Getting Started
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Prerequisites
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- Node.js (version 16 or higher)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository
+```bash
+git clone https://github.com/shahdnajjar/Portfolio.git
 ```
+
+2. Navigate to the project directory
+```bash
+cd Portfolio
+```
+
+3. Install dependencies
+```bash
+npm install
+# or
+yarn install
+```
+
+4. Start the development server
+```bash
+npm run dev
+# or
+yarn dev
+```
+
+5. Open your browser and visit `http://localhost:5173`
+
+## 📦 Build for Production
+
+```bash
+npm run build
+# or
+yarn build
+```
+
+The build files will be generated in the `dist` folder.
+
+## 📸 Screenshots
+
+## 🎯 Key Sections
+
+- **Hero/Introduction** - Brief introduction and call-to-action
+- **About** - Professional background and personal story
+- **Skills** - Technical skills and competencies
+- **Projects** - Showcase of development projects with live demos
+- **Experience** - Professional work experience
+- **Contact** - Multiple ways to get in touch
+
+## 🔗 Connect With Me
+
+- **Email:** [your-email@example.com](mailto:your-email@example.com)
+- **LinkedIn:** [Your LinkedIn Profile](https://linkedin.com/in/your-profile)
+- **GitHub:** [Your GitHub Profile](https://github.com/shahdnajjar)
+- **Portfolio:** [Your Website](https://your-portfolio-url.com)
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## 🙏 Acknowledgments
+
+- Thanks to the React and Vite communities for excellent documentation
+- Icons provided by [Icon Library Used - e.g., React Icons, Heroicons]
+- Inspiration from various portfolio designs in the developer community
+
+---
+
+⭐ If you found this portfolio helpful or inspiring, please consider giving it a star!
+
+**Built with ❤️ by Shahd Najjar**

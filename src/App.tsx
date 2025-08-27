@@ -1,9 +1,9 @@
 import { ChakraProvider, Box } from "@chakra-ui/react";
 import Navbar from "./components/ui/navbar";
-import LandingPage from "./features/landingpage";
-import AboutMe from "./components/ui/aboutme";
-import Skills from "./components/ui/skills";
-import Projects from "./components/ui/projects"; // Import the new Projects component
+import LandingPage from "./sections/LandingPage/LandingPage";
+import AboutMe from "./sections/About/About";
+import Skills from "./sections/Skills/Skills";
+import Projects from "./sections/Projects/Projects";
 
 function App() {
   return (
