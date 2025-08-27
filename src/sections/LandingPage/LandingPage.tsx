@@ -192,7 +192,7 @@ const LandingPage = () => {
                 transition="all 0.3s"
                 backdropFilter="blur(10px)"
               >
-                <Mail size={20} />
+           #     <Mail size={20} />
               </IconButton>
               <IconButton
                 aria-label="Dribbble"
