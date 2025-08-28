@@ -1,23 +1,36 @@
-import { ChakraProvider, Box } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import Navbar from "./components/ui/navbar";
 import LandingPage from "./sections/LandingPage/LandingPage";
 import AboutMe from "./sections/About/About";
 import Skills from "./sections/Skills/Skills";
 import Projects from "./sections/Projects/Projects";
+import Contact from "./sections/Contact/Contact";
 
 function App() {
   return (
-    <Box w="100vw" overflow="hidden">
+    <Box w="100%" maxW="100vw" overflowX="hidden">
       {/* Navbar en haut */}
       <Navbar />
       {/* Landing Page Section */}
-      <LandingPage />
+      <Box id="home">
+        <LandingPage />
+      </Box>
       {/* About Me Section */}
-      <AboutMe />
+      <Box id="aboutme">
+        <AboutMe />
+      </Box>
       {/* Skills Section */}
-      <Skills />
+      <Box id="skills">
+        <Skills />
+      </Box>
       {/* Projects Section */}
-      <Projects />
+      <Box id="myprojects">
+        <Projects />
+      </Box>
+      {/* Contact Section */}
+      <Box id="contact">
+        <Contact />
+      </Box>
     </Box>
   );
 }

@@ -1,4 +1,4 @@
-// Updated LandingPage
+// File: sections/LandingPage/LandingPage.tsx
 import {
   Box,
   Flex,
@@ -11,13 +11,12 @@ import {
 } from '@chakra-ui/react';
 import { Download, Github, Linkedin, Mail, Dribbble } from 'lucide-react';
 import { Player } from '@lottiefiles/react-lottie-player';
-import animationData from '../../assets/animations/Coder.json'; 
-
+import animationData from '../../assets/animations/Coder.json';
 
 const LandingPage = () => {
   return (
     <Box
-      h="100vh"
+      minH={{ base: "80vh", md: "100vh" }}
       bg="#EBE8DB"
       position="relative"
       overflow="hidden"
@@ -25,10 +24,10 @@ const LandingPage = () => {
       <Box position="absolute" inset={0}>
         <Box
           position="absolute"
-          top="80px"
-          left="40px"
-          w="128px"
-          h="128px"
+          top={{ base: "40px", md: "80px" }}
+          left={{ base: "20px", md: "40px" }}
+          w={{ base: "80px", md: "128px" }}
+          h={{ base: "80px", md: "128px" }}
           bg="#B03052"
           opacity={0.1}
           borderRadius="full"
@@ -36,10 +35,10 @@ const LandingPage = () => {
         />
         <Box
           position="absolute"
-          top="160px"
-          right="80px"
-          w="192px"
-          h="192px"
+          top={{ base: "100px", md: "160px" }}
+          right={{ base: "20px", md: "80px" }}
+          w={{ base: "120px", md: "192px" }}
+          h={{ base: "120px", md: "192px" }}
           bg="#D76C82"
           opacity={0.1}
           borderRadius="full"
@@ -47,10 +46,10 @@ const LandingPage = () => {
         />
         <Box
           position="absolute"
-          bottom="80px"
-          left="80px"
-          w="160px"
-          h="160px"
+          bottom={{ base: "40px", md: "80px" }}
+          left={{ base: "20px", md: "80px" }}
+          w={{ base: "100px", md: "160px" }}
+          h={{ base: "100px", md: "160px" }}
           bg="#3D0301"
           opacity={0.05}
           borderRadius="full"
@@ -58,21 +57,52 @@ const LandingPage = () => {
         />
       </Box>
 
-      <Box maxW="full" px={8} py={12} position="relative" zIndex={10}>
+      <Box maxW="full" px={{ base: 4, md: 8 }} py={{ base: 8, md: 12 }} position="relative" zIndex={10}>
         <Flex
           direction={{ base: 'column', lg: 'row' }}
-          gap={12}
+          gap={{ base: 8, md: 12 }}
           align="center"
-          minH="100vh"
+          minH={{ base: "auto", md: "100vh" }}
           maxW="7xl"
           mx="auto"
         >
-          <VStack align={{ base: 'center', lg: 'start' }} spaceY={8} flex={1}>
-            <VStack align={{ base: 'center', lg: 'start' }} spaceY={4}>
-              <VStack align={{ base: 'center', lg: 'start' }} spaceY={2}>
+          {/* Lottie Animation - Shows first on mobile, second on desktop */}
+          <Flex 
+            justify={{ base: 'center', lg: 'end' }} 
+            flex={1}
+            order={{ base: 1, lg: 2 }}
+          >
+            <Box position="relative" w={{ base: "80%", sm: "60%", md: "500px" }} h={{ base: "auto", md: "500px" }}>
+              <Box
+                w="100%"
+                h="100%"
+                display="flex"
+                alignItems="center"
+                justifyContent="center"
+              >
+                <Player
+                  autoplay
+                  loop
+                  speed={0.8}
+                  src={animationData}
+                  style={{ width: '100%', height: '100%', maxWidth: '500px', maxHeight: '500px' }}
+                />
+              </Box>
+            </Box>
+          </Flex>
+
+          {/* Text Content - Shows second on mobile, first on desktop */}
+          <VStack 
+            align={{ base: 'center', lg: 'start' }} 
+            gap={{ base: 4, md: 8 }} 
+            flex={1}
+            order={{ base: 2, lg: 1 }}
+          >
+            <VStack align={{ base: 'center', lg: 'start' }} gap={{ base: 2, md: 4 }}>
+              <VStack align={{ base: 'center', lg: 'start' }} gap={{ base: 1, md: 2 }}>
                 <Heading
                   color="#3D0301"
-                  fontSize={{ base: '4xl', md: '5xl', lg: '6xl' }}
+                  fontSize={{ base: '2xl', sm: '3xl', md: '4xl', lg: '6xl' }}
                   fontWeight="bold"
                   textAlign={{ base: 'center', lg: 'left' }}
                   lineHeight="1.1"
@@ -82,7 +112,7 @@ const LandingPage = () => {
                 
                 <Flex align="baseline" gap={3} wrap="wrap" justify={{ base: 'center', lg: 'start' }}>
                   <Heading
-                    fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}
+                    fontSize={{ base: 'xl', sm: '2xl', md: '3xl', lg: '5xl' }}
                     fontWeight="bold"
                     color="#B03052"
                     lineHeight="1.3"
@@ -91,7 +121,7 @@ const LandingPage = () => {
                   </Heading>
                   <Heading
                     color="#3D0301"
-                    fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}
+                    fontSize={{ base: 'xl', sm: '2xl', md: '3xl', lg: '5xl' }}
                     fontWeight="bold"
                   >
                     Developer
@@ -102,8 +132,8 @@ const LandingPage = () => {
               <Text
                 color="#3D0301"
                 opacity={0.8}
-                fontSize="lg"
-                maxW="md"
+                fontSize={{ base: 'sm', md: 'lg' }}
+                maxW={{ base: "90%", md: "md" }}
                 lineHeight="relaxed"
                 textAlign={{ base: 'center', lg: 'left' }}
               >
@@ -111,18 +141,18 @@ const LandingPage = () => {
               </Text>
             </VStack>
 
-            <HStack spaceX={4} wrap="wrap" justify={{ base: 'center', lg: 'start' }}>
+            <HStack gap={{ base: 2, md: 4 }} wrap="wrap" justify={{ base: 'center', lg: 'start' }}>
               <Button
                 bg="#D76C82"
                 color="#EBE8DB"
-                px={8}
-                py={6}
+                px={{ base: 4, md: 8 }}
+                py={{ base: 4, md: 6 }}
                 borderRadius="full"
                 fontWeight="semibold"
                 _hover={{ bg: '#C95A78' }}
                 transition="all 0.3s"
                 boxShadow="lg"
-                size="lg"
+                size={{ base: "md", md: "lg" }}
               >
                 My Projects
               </Button>
@@ -131,24 +161,24 @@ const LandingPage = () => {
                 bg="#EBE8DB"
                 color="#3D0301"
                 borderColor="#dab8bfff"
-                px={8}
-                py={6}
+                px={{ base: 4, md: 8 }}
+                py={{ base: 4, md: 6 }}
                 borderRadius="full"
                 fontWeight="semibold"
                 _hover={{ bg: '#E5E2D5' }}
                 transition="all 0.3s"
-                size="lg"
+                size={{ base: "md", md: "lg" }}
               >
                 <Download size={18} style={{ marginRight: '8px' }} />
                 Download CV
               </Button>
             </HStack>
 
-            <HStack spaceX={4}>
+            <HStack gap={{ base: 2, md: 4 }}>
               <IconButton
                 aria-label="GitHub"
-                w={12}
-                h={12}
+                w={{ base: 10, md: 12 }}
+                h={{ base: 10, md: 12 }}
                 bg="#EBE8DB"
                 color="#3D0301"
                 borderRadius="full"
@@ -160,8 +190,8 @@ const LandingPage = () => {
               </IconButton>
               <IconButton
                 aria-label="LinkedIn"
-                w={12}
-                h={12}
+                w={{ base: 10, md: 12 }}
+                h={{ base: 10, md: 12 }}
                 bg="#EBE8DB"
                 color="#3D0301"
                 borderRadius="full"
@@ -173,8 +203,8 @@ const LandingPage = () => {
               </IconButton>
               <IconButton
                 aria-label="Email"
-                w={12}
-                h={12}
+                w={{ base: 10, md: 12 }}
+                h={{ base: 10, md: 12 }}
                 bg="#EBE8DB"
                 color="#3D0301"
                 borderRadius="full"
@@ -186,8 +216,8 @@ const LandingPage = () => {
               </IconButton>
               <IconButton
                 aria-label="Dribbble"
-                w={12}
-                h={12}
+                w={{ base: 10, md: 12 }}
+                h={{ base: 10, md: 12 }}
                 bg="#EBE8DB"
                 color="#3D0301"
                 borderRadius="full"
@@ -199,26 +229,6 @@ const LandingPage = () => {
               </IconButton>
             </HStack>
           </VStack>
-
-          <Flex justify={{ base: 'center', lg: 'end' }} flex={1}>
-            <Box position="relative">
-              <Box
-                w="500px"
-                h="500px"
-                display="flex"
-                alignItems="center"
-                justifyContent="center"
-              >
- <Player
-                  autoplay
-                  loop
-                  speed={0.8}
-                  src={animationData} // ✅ imported JSON like AboutMe
-                  style={{ width: '500px', height: '500px' }}
-                />
-              </Box>
-            </Box>
-          </Flex>
         </Flex>
       </Box>
     </Box>

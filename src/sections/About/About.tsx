@@ -1,4 +1,4 @@
-
+// File: sections/About/About.tsx
 import {
   Box,
   Container,
@@ -13,19 +13,19 @@ import animationData from '../../assets/animations/girl on computer.json';
 const AboutMe = () => {
   return (
     <Box
-      minH="100vh"
+      minH={{ base: "auto", md: "100vh" }}
       bg="#EBE8DB"
       position="relative"
-      py={20}
+      py={{ base: 10, md: 20 }}
       overflow="hidden"
     >
       <Box position="absolute" inset={0}>
         <Box
           position="absolute"
-          top="80px"
-          left="40px"
-          w="128px"
-          h="128px"
+          top={{ base: "40px", md: "80px" }}
+          left={{ base: "20px", md: "40px" }}
+          w={{ base: "80px", md: "128px" }}
+          h={{ base: "80px", md: "128px" }}
           bg="#B03052"
           opacity={0.1}
           borderRadius="full"
@@ -33,10 +33,10 @@ const AboutMe = () => {
         />
         <Box
           position="absolute"
-          top="160px"
-          right="80px"
-          w="192px"
-          h="192px"
+          top={{ base: "100px", md: "160px" }}
+          right={{ base: "20px", md: "80px" }}
+          w={{ base: "120px", md: "192px" }}
+          h={{ base: "120px", md: "192px" }}
           bg="#D76C82"
           opacity={0.1}
           borderRadius="full"
@@ -44,11 +44,11 @@ const AboutMe = () => {
         />
       </Box>
 
-      <Container maxW="7xl" position="relative" zIndex={10}>
-        <VStack gap={6} mb={16} textAlign="center">
+      <Container maxW={{ base: "90%", md: "7xl" }} position="relative" zIndex={10}>
+        <VStack gap={{ base: 4, md: 6 }} mb={{ base: 8, md: 16 }} textAlign="center">
           <Heading
             color="#3D0301"
-            fontSize={{ base: '4xl', md: '5xl', lg: '6xl' }}
+            fontSize={{ base: '2xl', sm: '3xl', md: '4xl', lg: '6xl' }}
             fontWeight="bold"
           >
             About Me
@@ -63,17 +63,17 @@ const AboutMe = () => {
 
         <Flex
           direction={{ base: 'column', lg: 'row' }}
-          gap={12}
+          gap={{ base: 8, md: 12 }}
           align="center"
           justify="center"
         >
-          <VStack flex={1} align="center" gap={6}>
-            <Box position="relative">
+          <VStack flex={1} align="center" gap={{ base: 4, md: 6 }}>
+            <Box position="relative" w={{ base: "80%", sm: "60%", md: "500px" }} h={{ base: "auto", md: "500px" }}>
               <Box
-                w="500px"
-                h="500px"
+                w="100%"
+                h="100%"
                 display="flex"
-                alignItems="right"
+                alignItems="center"
                 justifyContent="center"
               >
                 <Player
@@ -81,28 +81,28 @@ const AboutMe = () => {
                   loop
                   speed={0.7}
                   src={animationData}
-                  style={{ width: '500px', height: '500px' }}
+                  style={{ width: '100%', height: '100%', maxWidth: '500px', maxHeight: '500px' }}
                 />
               </Box>
             </Box>
           </VStack>
 
-          <VStack flex={1.5} align="start" gap={8}>
+          <VStack flex={{ base: 1, lg: 1.5 }} align="start" gap={{ base: 4, md: 8 }}>
             <Box
               bg="#EBE8DB"
               borderRadius="3xl"
-              px={8}
-              py={8}
+              px={{ base: 4, md: 8 }}
+              py={{ base: 4, md: 8 }}
               border="2px solid #D76C82"
               boxShadow="0 8px 32px rgba(61, 3, 1, 0.1)"
               w="full"
               transition="all 0.3s"
               _hover={{ borderColor: '#B03052' }}
             >
-              <VStack align="start" gap={6}>
+              <VStack align="start" gap={{ base: 4, md: 6 }}>
                 <Text
                   color="#3D0301"
-                  fontSize={{ base: 'md', lg: 'lg' }}
+                  fontSize={{ base: 'sm', md: 'md', lg: 'lg' }}
                   lineHeight="relaxed"
                   opacity={0.9}
                 >
@@ -111,7 +111,7 @@ const AboutMe = () => {
                 
                 <Text
                   color="#3D0301"
-                  fontSize={{ base: 'md', lg: 'lg' }}
+                  fontSize={{ base: 'sm', md: 'md', lg: 'lg' }}
                   lineHeight="relaxed"
                   opacity={0.9}
                 >
@@ -120,7 +120,7 @@ const AboutMe = () => {
 
                 <Text
                   color="#3D0301"
-                  fontSize={{ base: 'md', lg: 'lg' }}
+                  fontSize={{ base: 'sm', md: 'md', lg: 'lg' }}
                   lineHeight="relaxed"
                   opacity={0.9}
                 >

@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+// File: sections/Projects/Projects.tsx
+import { useState } from 'react';
 import {
   Box,
   Container,
-  Flex,
   Text,
   Heading,
   VStack,
@@ -10,13 +10,14 @@ import {
   Grid,
   GridItem,
   Button,
+  Badge,
   DialogRoot,
   DialogTrigger,
   DialogContent,
   DialogHeader,
   DialogBody,
   DialogCloseTrigger,
-  Badge,
+  DialogTitle,
 } from '@chakra-ui/react';
 
 interface Project {
@@ -40,7 +41,7 @@ const projects: Project[] = [
   {
     id: 2,
     title: 'Paradice – Application web de Gestion de Stock',
-    description: 'Développement d\'une application web interne pour une entreprise de fabrication de glace. Elle permet la gestion des entrées/sorties de stock, le suivi des produits finis et matières premières. Back-end conçu avec Node.js, front-end développé en React.js avec une interface intuitive. Tests d\'API et validation fonctionnelle réalisés avec Postman. Données stockées dans une base PostgreSQL.',
+    description: 'Développement d\'une application web interne pour une entreprise de fabrication de glace. Elle Petite description pour le projet 2',
     category: 'Web Development',
     image: 'https://via.placeholder.com/400x300',
     link: '#',
@@ -72,20 +73,20 @@ const Projects = () => {
 
   return (
     <Box
-      minH="100vh"
+      minH={{ base: "auto", md: "100vh" }}
       bg="#EBE8DB"
       position="relative"
-      py={20}
+      py={{ base: 10, md: 20 }}
       overflow="hidden"
       id="myprojects"
     >
       <Box position="absolute" inset={0}>
         <Box
           position="absolute"
-          top="80px"
-          left="40px"
-          w="128px"
-          h="128px"
+          top={{ base: "40px", md: "80px" }}
+          left={{ base: "20px", md: "40px" }}
+          w={{ base: "80px", md: "128px" }}
+          h={{ base: "80px", md: "128px" }}
           bg="#B03052"
           opacity={0.1}
           borderRadius="full"
@@ -93,10 +94,10 @@ const Projects = () => {
         />
         <Box
           position="absolute"
-          bottom="80px"
-          right="80px"
-          w="160px"
-          h="160px"
+          bottom={{ base: "40px", md: "80px" }}
+          right={{ base: "20px", md: "80px" }}
+          w={{ base: "100px", md: "160px" }}
+          h={{ base: "100px", md: "160px" }}
           bg="#D76C82"
           opacity={0.1}
           borderRadius="full"
@@ -104,11 +105,11 @@ const Projects = () => {
         />
       </Box>
 
-      <Container maxW="7xl" position="relative" zIndex={10}>
-        <VStack gap={6} mb={16} textAlign="center">
+      <Container maxW={{ base: "90%", md: "7xl" }} position="relative" zIndex={10}>
+        <VStack gap={{ base: 4, md: 6 }} mb={{ base: 8, md: 16 }} textAlign="center">
           <Heading
             color="#3D0301"
-            size={{ base: '3xl', md: '4xl', lg: '5xl' }}
+            fontSize={{ base: '2xl', sm: '3xl', md: '4xl', lg: '5xl' }}
             fontWeight="bold"
           >
             My Projects
@@ -121,7 +122,7 @@ const Projects = () => {
           />
         </VStack>
 
-        <HStack gap={4} justify="center" mb={12}>
+        <HStack gap={{ base: 2, md: 4 }} justify="center" mb={{ base: 8, md: 12 }} flexWrap="wrap">
           {categories.map((category) => (
             <Button
               key={category}
@@ -130,13 +131,14 @@ const Projects = () => {
               border="1px solid #D76C82"
               color={filter === category ? '#EBE8DB' : '#3D0301'}
               fontWeight="semibold"
-              px={6}
-              py={2}
+              px={{ base: 4, md: 6 }}
+              py={{ base: 1, md: 2 }}
               _hover={{ 
                 bg: filter === category ? '#C95A78' : '#E5E2D5'
               }}
               transition="all 0.3s"
               onClick={() => setFilter(category)}
+              size={{ base: "sm", md: "md" }}
             >
               {category}
             </Button>
@@ -144,8 +146,8 @@ const Projects = () => {
         </HStack>
 
         <Grid
-          templateColumns={{ base: '1fr', md: 'repeat(2, 1fr)', lg: 'repeat(3, 1fr)' }}
-          gap={8}
+          templateColumns={{ base: '1fr', sm: 'repeat(2, 1fr)', lg: 'repeat(3, 1fr)' }}
+          gap={{ base: 4, md: 8 }}
         >
           {filteredProjects.map((project) => (
             <GridItem key={project.id}>
@@ -156,7 +158,7 @@ const Projects = () => {
                     borderRadius="2xl"
                     border="1px solid rgba(247, 165, 165, 0.5)"
                     boxShadow="0 8px 32px rgba(0, 0, 0, 0.1)"
-                    p={6}
+                    p={{ base: 4, md: 6 }}
                     transition="all 0.3s"
                     _hover={{
                       transform: 'translateY(-8px)',
@@ -166,10 +168,10 @@ const Projects = () => {
                   >
                     <Box
                       w="full"
-                      h="200px"
+                      h={{ base: "150px", md: "200px" }}
                       bg="#FFF2EF"
                       borderRadius="xl"
-                      mb={4}
+                      mb={{ base: 2, md: 4 }}
                       display="flex"
                       alignItems="center"
                       justifyContent="center"
@@ -182,27 +184,29 @@ const Projects = () => {
                           style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '8px' }} 
                         />
                       ) : (
-                        <Text color="#FFF2EF" opacity={0.8} fontSize="sm">
+                        <Text color="#FFF2EF" opacity={0.8} fontSize={{ base: "xs", md: "sm" }}>
                           Project Preview
                         </Text>
                       )}
                     </Box>
-                    <VStack align="start" gap={3}>
+                    <VStack align="start" gap={{ base: 2, md: 3 }}>
                       <Badge
                         bg="#FFDBB6"
                         color="#5D688A"
-                        px={3}
+                        px={{ base: 2, md: 3 }}
                         py={1}
                         borderRadius="full"
-                        fontSize="xs"
+                        fontSize={{ base: "xs", md: "xs" }}
                       >
                         {project.category}
                       </Badge>
-                      <Heading color="#5D688A" size="xl" fontWeight="bold">
+                      <Heading color="#5D688A" fontSize={{ base: "lg", md: "xl" }} fontWeight="bold">
                         {project.title}
                       </Heading>
-                      <Text color="#5D688A" opacity={0.7} fontSize="sm" lineClamp={2}>
-                        {project.description}
+                      <Text color="#5D688A" opacity={0.7} fontSize={{ base: "xs", md: "sm" }}>
+                        {project.description.length > 100 
+                          ? `${project.description.substring(0, 100)}...` 
+                          : project.description}
                       </Text>
                     </VStack>
                   </Box>
@@ -213,20 +217,21 @@ const Projects = () => {
                   borderRadius="2xl"
                   border="1px solid #F7A5A5"
                   boxShadow="0 8px 32px rgba(93, 104, 138, 0.1)"
-                  maxW="xl"
+                  maxW={{ base: "90%", md: "xl" }}
+                  mx="auto"
                 >
                   <DialogHeader>
-                    <Heading color="#5D688A" size="2xl" fontWeight="bold">
+                    <DialogTitle color="#5D688A" fontSize={{ base: "xl", md: "2xl" }} fontWeight="bold">
                       {project.title}
-                    </Heading>
+                    </DialogTitle>
                     <DialogCloseTrigger color="#5D688A" />
                   </DialogHeader>
                   <DialogBody pb={6}>
-                    <VStack gap={4} align="start">
+                    <VStack gap={{ base: 3, md: 4 }} align="start">
                       {project.image && (
                         <Box
                           w="full"
-                          h="300px"
+                          h={{ base: "200px", md: "300px" }}
                           bg="#F7A5A5"
                           borderRadius="xl"
                           overflow="hidden"
@@ -241,14 +246,14 @@ const Projects = () => {
                       <Badge
                         bg="#FFDBB6"
                         color="#5D688A"
-                        px={3}
+                        px={{ base: 2, md: 3 }}
                         py={1}
                         borderRadius="full"
-                        fontSize="xs"
+                        fontSize={{ base: "xs", md: "xs" }}
                       >
                         {project.category}
                       </Badge>
-                      <Text color="#5D688A" opacity={0.7} fontSize="md">
+                      <Text color="#5D688A" opacity={0.7} fontSize={{ base: "sm", md: "md" }}>
                         {project.description}
                       </Text>
                       <Button
@@ -256,11 +261,10 @@ const Projects = () => {
                         bg="#F7A5A5"
                         color="#FFF2EF"
                         borderRadius="full"
-                        px={6}
-                        py={2}
-                        _hover={{ 
-                          bg: "#F59494"
-                        }}
+                        px={{ base: 4, md: 6 }}
+                        py={{ base: 1, md: 2 }}
+                        _hover={{ bg: "#F59494" }}
+                        size={{ base: "sm", md: "md" }}
                       >
                         View Project
                       </Button>

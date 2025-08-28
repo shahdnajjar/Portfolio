@@ -1,4 +1,4 @@
-// Skills.tsx
+// File: sections/Skills/Skills.tsx
 import { useState, useEffect } from 'react';
 import {
   Box,
@@ -19,14 +19,14 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { faDatabase } from "@fortawesome/free-solid-svg-icons";
 import CIcon from '@coreui/icons-react';
-import { cibSwagger, cibPostman,cibTypescript } from '@coreui/icons';
+import { cibSwagger, cibPostman, cibTypescript } from '@coreui/icons';
 
 interface Skill {
   name: string;
   category: string;
-  icon?: any;       // FontAwesome icon
-  coreIcon?: any;   // CoreUI icon
-  logo?: string;    // Image path
+  icon?: any;
+  coreIcon?: any;
+  logo?: string;
   color: string;
 }
 
@@ -67,20 +67,19 @@ const Skills = () => {
 
   return (
     <Box
-      minH="100vh"
-      background="#EBE8DB"
+      minH={{ base: "auto", md: "100vh" }}
+      bg="#EBE8DB"
       position="relative"
-      py={20}
+      py={{ base: 10, md: 20 }}
       overflow="hidden"
     >
-      {/* Background glow effects */}
       <Box position="absolute" inset={0}>
         <Box
           position="absolute"
-          top="80px"
-          left="40px"
-          w="128px"
-          h="128px"
+          top={{ base: "40px", md: "80px" }}
+          left={{ base: "20px", md: "40px" }}
+          w={{ base: "80px", md: "128px" }}
+          h={{ base: "80px", md: "128px" }}
           bg="#B03052"
           opacity={0.1}
           borderRadius="full"
@@ -88,10 +87,10 @@ const Skills = () => {
         />
         <Box
           position="absolute"
-          bottom="80px"
-          right="80px"
-          w="160px"
-          h="160px"
+          bottom={{ base: "40px", md: "80px" }}
+          right={{ base: "20px", md: "80px" }}
+          w={{ base: "100px", md: "160px" }}
+          h={{ base: "100px", md: "160px" }}
           bg="#D76C82"
           opacity={0.1}
           borderRadius="full"
@@ -99,12 +98,11 @@ const Skills = () => {
         />
       </Box>
 
-      <Container maxW="7xl" position="relative" zIndex={10}>
-        {/* Title */}
-        <VStack gap={6} mb={16} textAlign="center">
+      <Container maxW={{ base: "90%", md: "7xl" }} position="relative" zIndex={10}>
+        <VStack gap={{ base: 4, md: 6 }} mb={{ base: 8, md: 16 }} textAlign="center">
           <Heading
             color="#3D0301"
-            fontSize={{ base: '4xl', md: '5xl', lg: '6xl' }}
+            fontSize={{ base: '2xl', sm: '3xl', md: '4xl', lg: '6xl' }}
             fontWeight="bold"
           >
             Technical <Text as="span" color="#B03052">Skills</Text>
@@ -112,8 +110,7 @@ const Skills = () => {
           <Box w="80px" h="4px" bg="#D76C82" borderRadius="full" />
         </VStack>
 
-        {/* Category Filters */}
-        <HStack gap={4} justify="center" mb={12}>
+        <HStack gap={{ base: 2, md: 4 }} justify="center" mb={{ base: 8, md: 12 }} flexWrap="wrap">
           {categories.map((category) => (
             <Button
               key={category}
@@ -122,23 +119,23 @@ const Skills = () => {
               border="1px solid #D76C82"
               color={selectedCategory === category ? '#EBE8DB' : '#3D0301'}
               fontWeight="semibold"
-              px={6}
-              py={2}
+              px={{ base: 4, md: 6 }}
+              py={{ base: 1, md: 2 }}
               _hover={{ 
                 bg: selectedCategory === category ? '#C95A78' : '#E5E2D5'
               }}
               transition="all 0.3s"
               onClick={() => setSelectedCategory(category)}
+              size={{ base: "sm", md: "md" }}
             >
               {category}
             </Button>
           ))}
         </HStack>
 
-        {/* Skills Grid */}
         <Grid
-          templateColumns={{ base: 'repeat(auto-fit, minmax(140px, 1fr))', md: 'repeat(auto-fit, minmax(180px, 1fr))' }}
-          gap={6}
+          templateColumns={{ base: 'repeat(auto-fit, minmax(120px, 1fr))', sm: 'repeat(auto-fit, minmax(140px, 1fr))', md: 'repeat(auto-fit, minmax(160px, 1fr))' }}
+          gap={{ base: 4, md: 6 }}
         >
           {filteredSkills.map((skill, index) => {
             const isActive = glowIndex === index;
@@ -150,7 +147,7 @@ const Skills = () => {
                 bg="#EBE8DB"
                 borderRadius="2xl"
                 border={isActive || isHovered ? `2px solid ${skill.color}` : '1px solid rgba(61, 3, 1, 0.3)'}
-                p={6}
+                p={{ base: 4, md: 6 }}
                 transition="all 0.3s"
                 _hover={{
                   transform: 'translateY(-8px)',
@@ -164,8 +161,8 @@ const Skills = () => {
                 {isActive && (
                   <Box
                     position="absolute"
-                    top="12px"
-                    right="12px"
+                    top={{ base: "8px", md: "12px" }}
+                    right={{ base: "8px", md: "12px" }}
                     w="8px"
                     h="8px"
                     bg={skill.color}
@@ -173,13 +170,12 @@ const Skills = () => {
                     animation="ping 1s infinite"
                   />
                 )}
-                <VStack align="center" gap={3}>
-                  {/* Icon rendering logic - FIXED */}
+                <VStack align="center" gap={{ base: 2, md: 3 }}>
                   {skill.icon ? (
-                    <Box display="flex" alignItems="center" justifyContent="center" w="64px" h="64px">
+                    <Box display="flex" alignItems="center" justifyContent="center" w={{ base: "48px", md: "64px" }} h={{ base: "48px", md: "64px" }}>
                       <FontAwesomeIcon
                         icon={skill.icon}
-                        size="3x"
+                        size="2x"
                         color={skill.color}
                         style={{
                           filter: isActive || isHovered ? 'brightness(1.1) saturate(1.2)' : 'brightness(0.9)',
@@ -192,8 +188,8 @@ const Skills = () => {
                       display="flex"
                       alignItems="center"
                       justifyContent="center"
-                      w="64px"
-                      h="64px"
+                      w={{ base: "48px", md: "64px" }}
+                      h={{ base: "48px", md: "64px" }}
                     >
                       <CIcon
                         icon={skill.coreIcon}
@@ -203,7 +199,7 @@ const Skills = () => {
                         style={{
                           filter: `brightness(${isActive || isHovered ? 1.1 : 0.9}) saturate(${isActive || isHovered ? 1.2 : 1})`,
                           transition: 'all 0.3s',
-                          fill: skill.color // Fallback for SVG fill
+                          fill: skill.color
                         }}
                       />
                     </Box>
@@ -211,22 +207,20 @@ const Skills = () => {
                     <Image
                       src={skill.logo}
                       alt={`${skill.name} logo`}
-                      boxSize="64px"
+                      boxSize={{ base: "48px", md: "64px" }}
                       objectFit="contain"
                       filter={isActive || isHovered ? 'brightness(1.1) saturate(1.2)' : 'brightness(0.9)'}
                       transition="all 0.3s"
                     />
                   ) : null}
 
-                  {/* Skill name */}
-                  <Text fontSize="md" fontWeight="semibold" color="#3D0301" textAlign="center">
+                  <Text fontSize={{ base: "sm", md: "md" }} fontWeight="semibold" color="#3D0301" textAlign="center">
                     {skill.name}
                   </Text>
 
-                  {/* Skill category */}
                   <Text
-                    fontSize="xs"
-                    px={3}
+                    fontSize={{ base: "xs", md: "xs" }}
+                    px={{ base: 2, md: 3 }}
                     py={1}
                     borderRadius="full"
                     border={`1px solid ${skill.color}`}
@@ -242,7 +236,6 @@ const Skills = () => {
         </Grid>
       </Container>
 
-      {/* Ping animation */}
       <style>
         {`
           @keyframes ping {
