@@ -21,6 +21,11 @@ type NavLinkProps = {
 
 const NavLink = ({ children, onClick, isMobile = false }: NavLinkProps) => {
   const id = children.toLowerCase().replace(/\s+/g, "");
+  const textColor = "#3D0301";
+  const hoverColor = "#D76C82";
+  const hoverBg = isMobile ? "rgba(235, 232, 219, 0.1)" : "transparent";
+  const hoverTransform = isMobile ? "translateX(8px)" : "scale(1.03)";
+  
   return (
     <Link
       px={isMobile ? 4 : { base: 1, md: 2 }}
@@ -30,15 +35,15 @@ const NavLink = ({ children, onClick, isMobile = false }: NavLinkProps) => {
       onClick={onClick}
       fontWeight={isMobile ? "semibold" : "medium"}
       fontSize={isMobile ? "lg" : { base: "md", md: "lg" }}
-      color={isMobile ? "#3D0301" : "#3D0301"}
+      color={textColor}
       position="relative"
       transition="all 0.18s ease"
       width={isMobile ? "full" : "auto"}
       _hover={{
         textDecoration: "none",
-        color: isMobile ? "#D76C82" : "#D76C82",
-        transform: isMobile ? "translateX(8px)" : "scale(1.03)",
-        bg: isMobile ? "rgba(235, 232, 219, 0.1)" : "transparent",
+        color: hoverColor,
+        transform: hoverTransform,
+        bg: hoverBg,
       }}
       _after={!isMobile ? {
         content: '""',
