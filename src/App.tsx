@@ -5,6 +5,7 @@ import AboutMe from "./sections/About/About";
 import Skills from "./sections/Skills/Skills";
 import Projects from "./sections/Projects/Projects";
 import Contact from "./sections/Contact/Contact";
+import Footer from "./components/ui/footer";
 
 function App() {
   return (
@@ -31,6 +32,8 @@ function App() {
       <Box id="contact">
         <Contact />
       </Box>
+      {/* Footer Section */}
+      <Footer />
     </Box>
   );
 }
